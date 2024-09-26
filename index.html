@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Please use landscape mode or access from a desktop.</h1>
+
+    <ul>
+      <img src="assets/1.jpg" alt="Cat 1" />
+      <img src="assets/2.jpg" alt="Cat 2" />
+      <img src="assets/3.jpg" alt="Cat 3" />
+      <img src="assets/4.jpg" alt="Cat 4" />
+      <img src="assets/5.jpg" alt="Cat 5" />
+      <img src="assets/6.jpg" alt="Cat 6" />
+      <img src="assets/7.jpg" alt="Cat 7" />
+      <img src="assets/8.jpg" alt="Cat 8" />
+      <img src="assets/9.jpg" alt="Cat 9" />
+    </ul>
+
+    <script>
+      function verifyDevice() {
+        const isMobile = new RegExp(/Mobi|Android/i).test(navigator.userAgent);
+        const isLandscape = window.innerWidth > window.innerHeight;
+        const blockMessage = document.querySelector("h1");
+        const imageList = document.querySelector("ul");
+        if (isMobile || !isLandscape) {
+          blockMessage.style.display = "block";
+          imageList.style.display = "none";
+        } else {
+          imageList.style.display = "flex";
+          blockMessage.style.display = "none";
+        }
+      }
+      window.addEventListener("resize", verifyDevice);
+      window.addEventListener("load", verifyDevice);
+    </script>
+  </body>
+</html>

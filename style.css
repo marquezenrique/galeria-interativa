@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  user-select: none;
+  box-sizing: border-box;
+  border: none;
+  transition: all ease 500ms;
+}
+
+body {
+  height: 100vh;
+  background-size: 40px 40px;
+  background-color: rgb(50, 67, 83);
+  background-image: radial-gradient(circle, #111 1px, #11111100 1px);
+  display: grid;
+  place-items: center;
+}
+
+h1 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 40vh;
+  z-index: 1000;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 0.625vw;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+img {
+  height: 10.938vw;
+  width: 8.333vw;
+  filter: brightness(0);
+  object-fit: cover;
+  object-position: center;
+}
+
+img:hover {
+  filter: brightness(1);
+  transform: translateZ(7.813vw);
+}
+
+img:hover + * {
+  filter: brightness(0.6);
+  transform: translateZ(6.25vw) rotateY(25deg);
+}
+
+img:hover + * + * {
+  filter: brightness(0.4);
+  transform: translateZ(3.125vw) rotateY(15deg);
+}
+
+img:hover + * + * + * {
+  filter: brightness(0.2);
+  transform: translateZ(1.563vw) rotateY(5deg);
+}
+
+img:has(+ *:hover) {
+  filter: brightness(0.6);
+  transform: translateZ(6.25vw) rotateY(-25deg);
+}
+
+img:has(+ * + *:hover) {
+  filter: brightness(0.4);
+  transform: translateZ(3.125vw) rotateY(-15deg);
+}
+
+img:has(+ * + * + *:hover) {
+  filter: brightness(0.2);
+  transform: translateZ(1.563vw) rotateY(-5deg);
+}
